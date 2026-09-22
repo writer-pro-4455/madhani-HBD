@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#7c3aed" />
+  <meta name="description" content="A playful birthday adventure made specially for Madhani." />
+  <title>Happy Birthday Madhani 🎂✨</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <button id="soundToggle" class="sound-toggle" aria-label="Toggle sound">
+    <span id="soundIcon">🔊</span>
+  </button>
+
+  <div class="floating-bg" aria-hidden="true">
+    <span class="float f1">🎈</span>
+    <span class="float f2">✨</span>
+    <span class="float f3">🎁</span>
+    <span class="float f4">💜</span>
+    <span class="float f5">🥗</span>
+    <span class="float f6">🎂</span>
+  </div>
+
+  <section id="passwordGate" class="password-gate" aria-label="Birthday password">
+    <div class="glass password-card">
+      <div class="password-icon">🔐🎁</div>
+      <p class="eyebrow">MADHANI'S PRIVATE BIRTHDAY PORTAL</p>
+      <h1>One tiny password first 😌</h1>
+      <p class="lead">The gifts are waiting… but birthday security is very strict 😂</p>
+
+      <form id="passwordForm" class="password-form" autocomplete="off">
+        <div class="password-input-wrap">
+          <input id="passwordInput" type="password" inputmode="text" placeholder="Enter the secret password" aria-label="Secret password" autocomplete="new-password" />
+          <button type="button" id="passwordReveal" class="password-reveal" aria-label="Show password">👀</button>
+        </div>
+        <div id="passwordMessage" class="password-message" aria-live="polite">
+          Hint: No nutrition calculation needed for this one 🥗😂
+        </div>
+        <button type="submit" class="primary-btn pulse">OPEN MY BIRTHDAY GIFT 🎉</button>
+      </form>
+
+      <div class="nutrition-quote">
+        “Access requires the correct password. Cake requires no permission.” 🎂✨
+      </div>
+    </div>
+  </section>
+
+  <main id="app" class="app-locked" aria-hidden="true">
+    <section class="screen active" id="screen-intro">
+      <div class="glass hero-card">
+        <p class="eyebrow">SPECIAL BIRTHDAY TRANSMISSION</p>
+        <h1>Hey <span class="gradient-text" data-person-name>Madhani</span> 👀</h1>
+        <p class="lead">A highly important birthday has been detected. Two gifts are secured. Access is currently locked.</p>
+        <div class="status-grid">
+          <div class="status-card"><span>🎂</span><small>Occasion</small><strong>BIRTHDAY</strong></div>
+          <div class="status-card"><span>🥗</span><small>Profession</small><strong>Nutrition & Dietetics</strong></div>
+          <div class="status-card"><span>🎁</span><small>Video Gifts</small><strong>2 LOCKED</strong></div>
+        </div>
+        <div class="quote-card">“You help everyone find balance on normal days. Today, cake is the balance.” 🎂</div>
+        <button class="primary-btn pulse" data-next="screen-loading">START THE CHAOS 🎉</button>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-loading">
+      <div class="glass compact-card">
+        <div class="loader-orbit"><span>🎁</span></div>
+        <h2>Preparing your birthday…</h2>
+        <div class="progress-shell"><div class="progress-bar" id="birthdayProgress"></div></div>
+        <p id="loadingLine">Checking happiness levels…</p>
+        <div id="loadingDone" class="hidden">
+          <div class="mega-title">HAPPY BIRTHDAY<br><span data-person-name>Madhani</span>! 🥳</div>
+          <p class="subtle">Diet plan for today: joy, laughter, memories… and yes, cake.</p>
+          <button class="primary-btn" data-next="screen-catch">UNLOCK GIFT #1 🎮</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-catch">
+      <div class="game-layout glass">
+        <div class="game-head">
+          <div><p class="eyebrow">LEVEL 01</p><h2>Catch Your Birthday Gifts 🎁</h2><p>Catch 5 good items. Avoid the sneaky ones.</p></div>
+          <div class="score-pill">Score: <span id="catchScore">0</span>/5</div>
+        </div>
+        <div id="catchArena" class="catch-arena" tabindex="0" aria-label="Birthday catch game">
+          <div id="basket" class="basket">🧺</div>
+          <div class="arena-hint">Move with ← →, A/D, mouse, or touch.</div>
+        </div>
+        <div class="legend-row"><span>🎁 +1</span><span>🎂 +1</span><span>🍓 +1</span><span>💣 −1</span><span>🌶️ surprise</span></div>
+        <div id="catchComplete" class="unlock-panel hidden">
+          <h3>Gift #1 Unlocked 🔓</h3>
+          <p>Excellent reflexes. Clinically unverified, but birthday-approved.</p>
+          <button class="primary-btn" data-next="screen-gift1">OPEN GIFT #1 🎁</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-gift1">
+      <div class="glass gift-stage">
+        <p class="eyebrow">VIDEO GIFT #1</p>
+        <h2>A little something made for you 💝</h2>
+        <p class="subtle">Some memories deserve more than a message.</p>
+        <button class="gift-box" id="giftBox1" aria-label="Open first gift">
+          <span class="gift-lid"></span><span class="gift-body"></span><span class="gift-ribbon-v"></span><span class="gift-ribbon-h"></span><span class="gift-tag">Tap to open</span>
+        </button>
+        <div class="nutrition-quote">“A balanced life needs protein, fiber, hydration… and people who make you smile.” ✨</div>
+        <div id="videoWrap1" class="video-wrap hidden">
+          <div class="video-kicker">GIFT ONE • FOR MADHANI</div>
+          <video id="video1" controls playsinline preload="metadata"><source src="assets/videos/video1.mp4" type="video/mp4" /></video>
+          <p id="videoError1" class="video-error hidden">Video 1 is ready to be connected. Add <code>assets/videos/video1.mp4</code>.</p>
+          <button id="continueAfterVideo1" class="primary-btn">THERE’S MORE 👀</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-interlude">
+      <div class="glass compact-card">
+        <div class="big-emoji wobble">😏</div>
+        <h2>You thought that was it?</h2>
+        <p class="lead">One video gift? For <span data-person-name>Madhani</span>? Absolutely not.</p>
+        <p class="quote-card">“Nutrition tip of the day: save room for dessert. Birthday science is very convincing.” 😂</p>
+        <button class="primary-btn" data-next="screen-hunt">FIND THE NEXT GIFT 🔎</button>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-hunt">
+      <div class="glass hunt-card">
+        <div class="game-head">
+          <div><p class="eyebrow">LEVEL 02</p><h2>Find the Hidden Gift 🔎</h2><p>Something here is hiding your second video.</p></div>
+          <div class="tries-pill">Tries: <span id="huntTries">0</span></div>
+        </div>
+        <div class="party-room" id="partyRoom">
+          <button class="room-item item-balloon" data-hunt="wrong" data-msg="Nice try, Madhani 🎈">🎈</button>
+          <button class="room-item item-cake" data-hunt="wrong" data-msg="The cake is innocent. For now. 🎂">🎂</button>
+          <button class="room-item item-teddy" data-hunt="wrong" data-msg="Cute, but not your gift 🧸">🧸</button>
+          <button class="room-item item-apple" data-hunt="wrong" data-msg="Very dietitian of you. Still wrong 🍎😂">🍎</button>
+          <button class="room-item item-salad" data-hunt="wrong" data-msg="Healthy choice. Terrible hiding place 🥗">🥗</button>
+          <button class="room-item item-star" data-hunt="wrong" data-msg="Sparkly, but keep searching ✨">⭐</button>
+          <button class="room-item item-gift-decoy" data-hunt="wrong" data-msg="Decoy gift! Suspiciously convincing.">🎁</button>
+          <button class="room-item item-secret" data-hunt="secret" aria-label="Hidden gift">🎀</button>
+        </div>
+        <div id="huntMessage" class="hunt-message">Hint: the best gifts are sometimes hiding in plain sight.</div>
+        <div id="huntComplete" class="unlock-panel hidden">
+          <h3>Found it! 🎁</h3><p>One tiny security check before the final gift.</p>
+          <button class="primary-btn" data-next="screen-quiz">OPEN SECURITY CHECK 🔐</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-quiz">
+      <div class="glass quiz-card">
+        <div class="lock-icon">🔐</div>
+        <p class="eyebrow">FINAL GIFT SECURITY SYSTEM</p>
+        <h2>Who is today’s VIP?</h2>
+        <div class="quiz-options">
+          <button class="quiz-btn">Madhani 😌</button><button class="quiz-btn">Obviously Madhani 😂</button><button class="quiz-btn">The birthday dietitian 👑</button><button class="quiz-btn">All of the above ✨</button>
+        </div>
+        <div id="quizSuccess" class="unlock-panel hidden">
+          <h3>ACCESS GRANTED ✅</h3><p>Identity confirmed: certified birthday VIP.</p>
+          <button class="primary-btn" data-next="screen-gift2">REVEAL FINAL GIFT 🎁</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-gift2">
+      <div class="glass gift-stage final-gift-stage">
+        <p class="eyebrow">FINAL VIDEO GIFT</p>
+        <h2>Okay… jokes apart.</h2>
+        <p class="lead">This one is specially for you, <span data-person-name>Madhani</span>. ❤️</p>
+        <button class="gift-box final-box" id="giftBox2" aria-label="Open final gift">
+          <span class="gift-lid"></span><span class="gift-body"></span><span class="gift-ribbon-v"></span><span class="gift-ribbon-h"></span><span class="gift-tag">Final gift</span>
+        </button>
+        <div id="videoWrap2" class="video-wrap hidden">
+          <div class="video-kicker">THE MAIN GIFT • HAPPY BIRTHDAY</div>
+          <video id="video2" controls playsinline preload="metadata"><source src="assets/videos/video2.mp4" type="video/mp4" /></video>
+          <p id="videoError2" class="video-error hidden">Video 2 is ready to be connected. Add <code>assets/videos/video2.mp4</code>.</p>
+          <button id="continueAfterVideo2" class="primary-btn">ONE LAST THING ✨</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-finale">
+      <div class="glass finale-card">
+        <p class="eyebrow">THE FINALE</p>
+        <h2>Make a Birthday Wish ✨</h2>
+        <p class="lead">You spend so much time helping other people take care of themselves. Today is your reminder to celebrate yourself too.</p>
+        <div class="cake-scene" id="cakeScene">
+          <div class="flame" id="flame"></div><div class="candle"></div><div class="cake-top"></div>
+          <div class="cake-base"><span>HAPPY BIRTHDAY</span><strong data-person-name>Madhani</strong></div>
+        </div>
+        <button id="blowCandle" class="primary-btn pulse">BLOW THE CANDLE 🎂</button>
+        <div id="finalMessage" class="final-message hidden">
+          <div class="mega-title">Wish sent to the universe ✨</div>
+          <p>May your year be full of happiness, good health, peaceful moments, ridiculous laughter, meaningful work, and memories worth replaying.</p>
+          <div class="quote-card">“For the person who knows the value of nourishment: may this year nourish your dreams too.” 💜</div>
+          <h2 class="signature">Happy Birthday, <span data-person-name>Madhani</span>! 🎉</h2>
+          <button id="replayBtn" class="secondary-btn">REPLAY THE ADVENTURE ↻</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
