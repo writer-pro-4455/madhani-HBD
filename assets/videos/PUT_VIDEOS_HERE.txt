@@ -1,0 +1,7 @@
+PLACE THE TWO BIRTHDAY VIDEOS IN THIS FOLDER.
+
+Required filenames:
+video1.mp4
+video2.mp4
+
+The website is already configured to use these paths.
